@@ -37,6 +37,7 @@
         "resultss",
         "rtraining",
         "seqeval",
+        "sklearn",
         "skos",
         "sntid",
         "snts",

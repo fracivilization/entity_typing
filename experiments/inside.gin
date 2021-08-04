@@ -2,9 +2,13 @@ load_dataset.path = "conll2003"
 translate_ner_dataset.ner_dataset = @load_dataset()
 
 TrainingArguments.output_dir = @random_output_dir()
+TrainingArguments.do_train = False
 SpanInsideClassificationModelArguments.model_name_or_path = "dmis-lab/biobert-v1.1"
-
-SpanInsideClassifier.span_classification_datasets = @translate_ner_dataset()
+span_classification_datasets = @translate_ner_dataset()
+SpanInsideClassifier.span_classification_datasets = %span_classification_datasets
 SpanInsideClassifier.model_args = @SpanInsideClassificationModelArguments()
 SpanInsideClassifier.data_args = @SpanInsideClassificationDataTrainingArguments()
 SpanInsideClassifier.training_args = @TrainingArguments()
+
+SpanClassificationTestor.span_classification_datasets = %span_classification_datasets
+SpanClassificationTestor.span_classifier_model = @SpanInsideClassifier()

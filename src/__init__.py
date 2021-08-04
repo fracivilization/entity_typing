@@ -6,3 +6,4 @@ from .models.inside import (
     SpanInsideClassifier,
 )
 from .utils import random_output_dir
+from .evaluator import SpanClassificationTestor
