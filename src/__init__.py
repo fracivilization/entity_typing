@@ -5,5 +5,10 @@ from .models.inside import (
     SpanInsideClassificationDataTrainingArguments,
     SpanInsideClassifier,
 )
+from .models.context import (
+    SpanContextClassificationDataTrainingArguments,
+    SpanContextClassificationModelArguments,
+    SpanContextClassifier,
+)
 from .utils import random_output_dir
 from .evaluator import SpanClassificationTestor

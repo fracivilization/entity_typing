@@ -36,7 +36,7 @@ class SpanClassifier:
         self.span_classification_datasets = span_classification_datasets.map(
             self.preprocess_function,
             batched=True,
-            load_from_cache_file=not data_args.overwrite_cache,
+            load_from_cache_file=False,  # because it might have a problem
         )
         self.argss = []
 
@@ -58,3 +58,15 @@ class SpanClassifier:
             ret_dict (Dict): {"label": List[int], "...": ...}
         """
         raise NotImplementedError
+
+
+def translate_into_orig_train_args(training_args):
+    from transformers import TrainingArguments as OrigTrainingArguments
+
+    train_dict = training_args.to_dict()
+    del train_dict["_n_gpu"]
+    if train_dict["log_level"] == -1:
+        train_dict["log_level"] = "passive"
+    if train_dict["log_level_replica"] == -1:
+        train_dict["log_level_replica"] = "passive"
+    return OrigTrainingArguments(**train_dict)

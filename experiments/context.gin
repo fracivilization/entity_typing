@@ -1,0 +1,16 @@
+load_dataset.path = "conll2003"
+translate_ner_dataset.ner_dataset = @load_dataset()
+
+TrainingArguments.output_dir = @random_output_dir()
+TrainingArguments.do_train = True
+TrainingArguments.per_device_train_batch_size = 8
+TrainingArguments.per_device_eval_batch_size = 16
+SpanContextClassificationModelArguments.model_name_or_path = "dmis-lab/biobert-v1.1"
+span_classification_datasets = @translate_ner_dataset()
+SpanContextClassifier.span_classification_datasets = %span_classification_datasets
+SpanContextClassifier.model_args = @SpanContextClassificationModelArguments()
+SpanContextClassifier.data_args = @SpanContextClassificationDataTrainingArguments()
+SpanContextClassifier.training_args = @TrainingArguments()
+
+SpanClassificationTestor.span_classification_datasets = %span_classification_datasets
+SpanClassificationTestor.span_classifier_model = @SpanContextClassifier()

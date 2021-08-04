@@ -11,8 +11,12 @@
             "program": "main.py",
             "console": "integratedTerminal",
             "args": [
-                "experiments/inside.gin"
+                // "experiments/inside.gin"
+                "experiments/context.gin"
             ],
+            // "env": {
+            //     "CUDA_VISIBLE_DEVICES": "0",
+            // },
             "justMyCode": false
         }
     ]

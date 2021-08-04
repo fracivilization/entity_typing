@@ -7,7 +7,7 @@ from loguru import logger
 
 if __name__ == "__main__":
     gin.parse_config_file(sys.argv[1])
-    # translate_ner_dataset()
-    pass
-    SpanClassificationTestor()
-    pass
+
+    testor = SpanClassificationTestor()
+    testor.evaluate()
+

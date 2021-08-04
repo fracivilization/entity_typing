@@ -17,7 +17,6 @@ class SpanClassificationTestor:
         self.span_classifier_model = span_classifier_model
         self.label_list = self.test_span_classification_dataset.features["label"].names
         self.predictions = self.load_predictions()
-        pass
 
     def load_predictions(self) -> Dataset:
         predictions = defaultdict(list)

@@ -51,6 +51,7 @@ from .abstract_model import (
     SpanClassifier,
     SpanClassifierOutput,
     SpanClassifierDataTrainingArguments,
+    translate_into_orig_train_args,
 )
 
 import gin
@@ -212,6 +213,7 @@ class SpanInsideClassifier(SpanClassifier):
         # We now keep distinct sets of args, for a cleaner separation of concerns.
         self.model_args = model_args
         self.data_args = data_args
+        training_args = translate_into_orig_train_args(training_args)
         self.training_args = training_args
 
         if (
