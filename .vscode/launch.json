@@ -18,6 +18,22 @@
             //     "CUDA_VISIBLE_DEVICES": "0",
             // },
             "justMyCode": false
+        },
+        {
+            "name": "Python: Main (elm34)",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": [
+                // "experiments/inside.gin"
+                // "experiments/context.gin"
+                "experiments/inscon.gin"
+            ],
+            // "env": {
+            //     "CUDA_VISIBLE_DEVICES": "0",
+            // },
+            "justMyCode": false
         }
     ]
 }
