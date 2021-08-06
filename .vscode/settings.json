@@ -47,7 +47,7 @@
         "xzvf"
     ],
     "python.testing.pytestArgs": [
-        "tests"
+        "test"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
